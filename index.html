@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DI template - 20160520</title>
+    <meta name=viewport content="width=device-width initial-scale=1">
+    <link href="http://cartodb.com/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="./themes/css/deep-insights.css" />
+    <script src="./scripts/deep-insights.uncompressed.js"></script>
+    <style type="text/css">
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Dashboard-canvas" id="dashboard"></div>
+
+    <script>
+        window.myapp = window.myapp || {};
+
+        window.onload = function () {
+
+            var diJSON = {
+               "id":"cff44714-2d98-11e6-bb55-0e5db1731f59",
+               "version":"3.0.0",
+               "title":"SV-DeepInsights",
+               "likes":0,
+               "description":null,
+               "scrollwheel":false,
+               "legends":true,
+               "map_provider":"leaflet",
+               "bounds":[
+                  [
+                     -37.879189314816514,
+                     142.503662109375
+                  ],
+                  [
+                     -35.759886049336586,
+                     147.8375244140625
+                  ]
+               ],
+               "center":"[-36.82687474287728, 145.17059326171875]",
+               "zoom":8,
+               "updated_at":"2016-06-08T16:48:22+00:00",
+               "layers":[
+                  {
+                     "options":{
+                        "default":"true",
+                        "url":"http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+                        "subdomains":"abcd",
+                        "minZoom":"0",
+                        "maxZoom":"18",
+                        "name":"Positron",
+                        "className":"positron_rainbow_labels",
+                        "attribution":"&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>",
+                        "labels":{
+                           "url":"http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png"
+                        },
+                        "urlTemplate":"http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png"
+                     },
+                     "infowindow":null,
+                     "tooltip":null,
+                     "id":"618d902b-0b44-4a93-bb41-abd833e3664c",
+                     "order":0,
+                     "type":"tiled"
+                  },
+                  {
+                     "type":"layergroup",
+                     "options":{
+                        "user_name":"rsharan",
+                        "maps_api_template":"https://{user}.cartodb.com:443",
+                        "sql_api_template":"https://{user}.cartodb.com:443",
+                        "filter":"mapnik",
+                        "layer_definition":{
+                           "stat_tag":"cff44714-2d98-11e6-bb55-0e5db1731f59",
+                           "version":"3.0.0",
+                           "layers":[
+                              {
+                                 "id":"d5088e42-f7e3-4b65-b935-41704416167b",
+                                 "type":"CartoDB",
+                                 "infowindow":{
+                                    "fields":[
+
+                                    ],
+                                    "template_name":"table/views/infowindow_light",
+                                    "template":"<div class=\"CDB-infowindow CDB-infowindow--light js-infowindow\">\n  <div class=\"CDB-infowindow-container\">\n    <div class=\"CDB-infowindow-bg\">\n      <div class=\"CDB-infowindow-inner\">\n        {{#loading}}\n          <div class=\"CDB-Loader js-loader is-visible\"></div>\n        {{/loading}}\n        <ul class=\"CDB-infowindow-list js-content\">\n          {{#content.fields}}\n          <li class=\"CDB-infowindow-listItem\">\n            {{#title}}<h5 class=\"CDB-infowindow-subtitle\">{{title}}</h5>{{/title}}\n            {{#value}}<h4 class=\"CDB-infowindow-title\">{{{ value }}}</h4>{{/value}}\n            {{^value}}<h4 class=\"CDB-infowindow-title\">null</h4>{{/value}}\n          </li>\n          {{/content.fields}}\n        </ul>\n      </div>\n    </div>\n    <div class=\"CDB-hook\">\n      <div class=\"CDB-hook-inner\"></div>\n    </div>\n  </div>\n</div>\n",
+                                    "alternative_names":{
+
+                                    },
+                                    "width":226,
+                                    "maxHeight":180
+                                 },
+                                 "tooltip":{
+                                    "fields":[
+
+                                    ],
+                                    "template_name":"tooltip_light",
+                                    "template":"<div class=\"CDB-Tooltip CDB-Tooltip--isLight\">\n  <ul class=\"CDB-Tooltip-list\">\n    {{#fields}}\n      <li class=\"CDB-Tooltip-listItem\">\n        {{#title}}\n          <h3 class=\"CDB-Tooltip-listTitle\">{{{ title }}}</h3>\n        {{/title}}\n        <h4 class=\"CDB-Tooltip-listText\">{{{ value }}}</h4>\n      </li>\n    {{/fields}}\n  </ul>\n</div>\n",
+                                    "alternative_names":{
+
+                                    },
+                                    "maxHeight":180
+                                 },
+                                 "legend":{
+                                    "type":"category",
+                                    "show_title":false,
+                                    "title":"",
+                                    "template":"",
+                                    "visible":true,
+                                    "items":[
+                                       {
+                                          "name":"Detached Home",
+                                          "visible":true,
+                                          "value":"#A6CEE3"
+                                       },
+                                       {
+                                          "name":"Domestic Livestock Grazing",
+                                          "visible":true,
+                                          "value":"#0F3B82"
+                                       },
+                                       {
+                                          "name":"General Cropping (generally more than 20ha plantings)",
+                                          "visible":true,
+                                          "value":"#B2DF8A"
+                                       },
+                                       {
+                                          "name":"Mixed farming and grazing  (generally more than 20ha)",
+                                          "visible":true,
+                                          "value":"#136400"
+                                       },
+                                       {
+                                          "name":"Reserved Land",
+                                          "visible":true,
+                                          "value":"#FB9A99"
+                                       },
+                                       {
+                                          "name":"Separate House and Curtilage",
+                                          "visible":true,
+                                          "value":"#850200"
+                                       },
+                                       {
+                                          "name":"Single Strata Unit / Villa Unit / Townhouse",
+                                          "visible":true,
+                                          "value":"#FDBF6F"
+                                       },
+                                       {
+                                          "name":"Unclassified Private Land",
+                                          "visible":true,
+                                          "value":"#FF2900"
+                                       },
+                                       {
+                                          "name":"Vacant Residential Home Site / Surveyed Lot",
+                                          "visible":true,
+                                          "value":"#cab2d6"
+                                       },
+                                       {
+                                          "name":"Vacant Residential Rural / Rural Lifestyle (0.4 to 20ha)",
+                                          "visible":true,
+                                          "value":"#41006D"
+                                       },
+                                       {
+                                          "name":"Others",
+                                          "visible":true,
+                                          "value":"#DDDDDD"
+                                       }
+                                    ]
+                                 },
+                                 "order":1,
+                                 "visible":true,
+                                 "options":{
+                                    "layer_name":"landuse2014_clip",
+                                    "cartocss":"/** category visualization */\n\n#landuse2014_clip {\n   polygon-opacity: 0.9;\n   line-color: #FFF;\n   line-width: 0.5;\n   line-opacity: 1;\n}\n\n#landuse2014_clip[lu_desc=\"Detached Home\"] {\n   polygon-fill: #A6CEE3;\n}\n#landuse2014_clip[lu_desc=\"Domestic Livestock Grazing\"] {\n   polygon-fill: #0F3B82;\n}\n#landuse2014_clip[lu_desc=\"General Cropping (generally more than 20ha plantings)\"] {\n   polygon-fill: #B2DF8A;\n}\n#landuse2014_clip[lu_desc=\"Mixed farming and grazing  (generally more than 20ha)\"] {\n   polygon-fill: #136400;\n}\n#landuse2014_clip[lu_desc=\"Reserved Land\"] {\n   polygon-fill: #FB9A99;\n}\n#landuse2014_clip[lu_desc=\"Separate House and Curtilage\"] {\n   polygon-fill: #850200;\n}\n#landuse2014_clip[lu_desc=\"Single Strata Unit / Villa Unit / Townhouse\"] {\n   polygon-fill: #FDBF6F;\n}\n#landuse2014_clip[lu_desc=\"Unclassified Private Land\"] {\n   polygon-fill: #FF2900;\n}\n#landuse2014_clip[lu_desc=\"Vacant Residential Home Site / Surveyed Lot\"] {\n   polygon-fill: #cab2d6;\n}\n#landuse2014_clip[lu_desc=\"Vacant Residential Rural / Rural Lifestyle (0.4 to 20ha)\"] {\n   polygon-fill: #41006D;\n}\n#landuse2014_clip {\n   polygon-fill: #DDDDDD;\n}",
+                                    "cartocss_version":"2.1.1",
+                                    "interactivity":"cartodb_id",
+                                    "sql":"select * from solutions.landuse2014_clip"
+                                 }
+                              }
+                           ]
+                        },
+                        "attribution":""
+                     }
+                  },
+                  {
+                     "options":{
+                        "default":"true",
+                        "url":"http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
+                        "subdomains":"abcd",
+                        "minZoom":"0",
+                        "maxZoom":"18",
+                        "attribution":"&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>",
+                        "urlTemplate":"http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
+                        "type":"Tiled",
+                        "name":"Positron Labels"
+                     },
+                     "infowindow":null,
+                     "tooltip":null,
+                     "id":"d5782090-e6e5-4f74-8efa-be2d7e3ab7e6",
+                     "order":2,
+                     "type":"tiled"
+                  }
+               ],
+               "overlays":[
+                  {
+                     "type":"share",
+                     "order":2,
+                     "options":{
+                        "display":true,
+                        "x":20,
+                        "y":20
+                     },
+                     "template":""
+                  },
+                  {
+                     "type":"search",
+                     "order":3,
+                     "options":{
+                        "display":true,
+                        "x":60,
+                        "y":20
+                     },
+                     "template":""
+                  },
+                  {
+                     "type":"zoom",
+                     "order":6,
+                     "options":{
+                        "display":true,
+                        "x":20,
+                        "y":20
+                     },
+                     "template":"<a href=\"#zoom_in\" class=\"zoom_in\">+</a> <a href=\"#zoom_out\" class=\"zoom_out\">-</a>"
+                  },
+                  {
+                     "type":"loader",
+                     "order":8,
+                     "options":{
+                        "display":true,
+                        "x":20,
+                        "y":150
+                     },
+                     "template":"<div class=\"loader\" original-title=\"\"></div>"
+                  },
+                  {
+                     "type":"logo",
+                     "order":9,
+                     "options":{
+                        "display":true,
+                        "x":10,
+                        "y":40
+                     },
+                     "template":""
+                  }
+               ],
+               "prev":null,
+               "next":null,
+               "transition_options":{
+                  "time":0
+               },
+               "widgets":[
+
+               ],
+               "datasource":{
+                  "user_name":"rsharan",
+                  "maps_api_template":"https://{user}.cartodb.com:443",
+                  "stat_tag":"cff44714-2d98-11e6-bb55-0e5db1731f59"
+               },
+               "user":{
+                  "fullname":"rsharan",
+                  "avatar_url":"//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/unversioned/images/avatars/avatar_marker_yellow.png"
+               },
+               "analyses":[
+
+               ],
+               "vector":false
+            };
+                //username = diJSON.match(/\/u\/(.+)\/api\/v\d\/|:\/\/(.+)\.cartodb\.com\/api/i)[1];
+                myapp = window.myapp;
+
+            myapp.sqlclient = new cartodb.SQL({ // SQL client
+                user: "rsharan",
+                protocol: "https",
+                sql_api_template: "https://{user}.cartodb.com:443"
+            });
+
+            cartodb.deepInsights.createDashboard('#dashboard', diJSON, {
+                no_cdn: false
+            }, function (err, dashboard) {
+                myapp.map = dashboard.getMap();
+                myapp.Lmap = myapp.map.getNativeMap(); // Leaflet map object
+                myapp.layers = myapp.map.getLayers(); // CartoDB layers
+                // if the layer has an analysis node, its SQL is not exposed in the API
+                myapp.layers.map(function (a) {
+                    var tmp;
+                    if (a.attributes.sql == void 0) {
+                        tmp = dashboard._dashboard.vis._analysisCollection.models.filter(function (b) {
+                            return b.id == a.attributes.source;
+                        })[0];
+                        if (tmp != void 0) a.attributes.sql = tmp.attributes.query;
+                    }
+                    return a;
+                });
+                myapp.widgetsdata = dashboard.getWidgets().map(function (a) { // Array of widgets’ data models
+                    return a.dataviewModel
+                });
+                myapp.widgets = dashboard.getWidgets(); // Array of widgets views
+
+                myapp.wcontainer = cdb.$('#' + vis.$el.context.id + ' .CDB-Widget-canvasInner').get(0); // Container
+
+                var sum = {
+                    "type": "formula",
+                    "title": "Total Area",
+                    "column": "hectares",
+                    "operation": "sum"
+                };
+
+
+                var cat1 = {
+                    "type": "category",
+                    "title": "Category by LGA",
+                    "column": "lga"
+                };
+
+                var cat2 = {
+                    "type": "category",
+                    "title": "Category by Lu_desc",
+                    "column": "lu_desc"
+                };
+                dashboard.createFormulaWidget(sum,myapp.map.getLayer(1));
+                dashboard.createCategoryWidget(cat1,myapp.map.getLayer(1));
+                dashboard.createCategoryWidget(cat2,myapp.map.getLayer(1));
+
+            });
+        }
+    </script>
+</body>
+
+</html>
