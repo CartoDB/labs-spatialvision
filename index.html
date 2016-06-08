@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>DI template - 20160520</title>
+    <title>Deep-Insights.js | 2 Layers </title>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
     <meta name=viewport content="width=device-width initial-scale=1">
-    <link href="http://cartodb.com/favicon.ico" rel="shortcut icon" />
-    <link rel="stylesheet" href="./themes/css/deep-insights.css" />
-    <script src="./scripts/deep-insights.uncompressed.js"></script>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/di.js/v0/themes/css/deep-insights.css" />
+    <script src=" http://libs.cartocdn.com/di.js/v0/deep-insights.uncompressed.js"></script>
     <style type="text/css">
         html,
         body {
@@ -296,7 +296,7 @@
                 myapp.Lmap = myapp.map.getNativeMap(); // Leaflet map object
                 myapp.layers = myapp.map.getLayers(); // CartoDB layers
                 // if the layer has an analysis node, its SQL is not exposed in the API
-                myapp.layers.map(function (a) {
+                /*myapp.layers.map(function (a) {
                     var tmp;
                     if (a.attributes.sql == void 0) {
                         tmp = dashboard._dashboard.vis._analysisCollection.models.filter(function (b) {
@@ -312,7 +312,7 @@
                 myapp.widgets = dashboard.getWidgets(); // Array of widgets views
 
                 myapp.wcontainer = cdb.$('#' + vis.$el.context.id + ' .CDB-Widget-canvasInner').get(0); // Container
-
+                */
                 var sum = {
                     "type": "formula",
                     "title": "Total Area",
