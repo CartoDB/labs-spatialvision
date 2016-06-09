@@ -324,14 +324,19 @@
                 var cat1 = {
                     "type": "category",
                     "title": "Category by LGA",
-                    "column": "lga"
+                    "column": "lga",
+                    "aggregation_column": "hectares",
+                    "aggregation": "sum"
                 };
 
                 var cat2 = {
                     "type": "category",
                     "title": "Category by Lu_desc",
-                    "column": "lu_desc"
+                    "column": "lu_desc",
+                    "aggregation_column": "hectares",
+                    "aggregation": "sum"
                 };
+
                 dashboard.createFormulaWidget(sum,myapp.map.getLayer(1));
                 dashboard.createCategoryWidget(cat1,myapp.map.getLayer(1));
                 dashboard.createCategoryWidget(cat2,myapp.map.getLayer(1));
